@@ -1,0 +1,286 @@
+path>mkdir repo
+
+path>cd repo
+
+path\repo>git inite
+git: 'inite' is not a git command. See 'git --help'.
+
+The most similar command is
+        init
+
+path\repo>git init
+Initialized empty Git repository in D:/Root/lab/iti/day 33 source control/lab/repo/.git/
+
+path\repo>echo "" > README.md
+
+path\repo>git add *
+
+path\repo>git status -s
+A  README.md
+
+path\repo>git commit -m "intial commit"
+[main (root-commit) 27b0aff] intial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+path\repo>
+path\repo>git remote add origin https://github.com/mohammed37773/iti-dummy-repo2.git
+
+path\repo>git branch -M main
+
+path\repo>git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 219 bytes | 219.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ * [new branch]      main -> main
+
+path\repo>git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 914 bytes | 101.00 KiB/s, done.
+From https://github.com/mohammed37773/iti-dummy-repo2
+   27b0aff..f388a68  main       -> origin/main
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> main
+
+
+path\repo>git checkout main
+Already on 'main'
+
+path\repo>git checkout -b test
+Switched to a new branch 'test'
+
+path\repo>echo "This is test branch" > test.txt
+
+path\repo>git add *
+
+path\repo>git commit -m "test branch"
+[test ba2decc] test branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+
+path\repo>get push origin test
+'get' is not recognized as an internal or external command,
+operable program or batch file.
+
+path\repo>git push origin test
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 298 bytes | 149.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'test' on GitHub by visiting:
+remote:      https://github.com/mohammed37773/iti-dummy-repo2/pull/new/test
+remote:
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ * [new branch]      test -> test
+
+path\repo>git checkout -b dev
+Switched to a new branch 'dev'
+
+path\repo>echo "This is dev branch" > dev.txt
+
+path\repo>git add *
+
+path\repo>git commit -m "dev branch"
+[dev 14a0c56] dev branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dev.txt
+
+path\repo>git push origin dev
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 326 bytes | 326.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/mohammed37773/iti-dummy-repo2/pull/new/dev
+remote:
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ * [new branch]      dev -> dev
+
+path\repo>git switch main
+Switched to branch 'main'
+
+path\repo>git merge dev
+Updating 27b0aff..14a0c56
+Fast-forward
+ dev.txt  | 1 +
+ test.txt | 1 +
+ 2 files changed, 2 insertions(+)
+ create mode 100644 dev.txt
+ create mode 100644 test.txt
+
+path\repo>git merge test
+Already up to date.
+
+path\repo>git switch main
+Already on 'main'
+
+path\repo>git merge dev
+Already up to date.
+
+path\repo>git merge test
+Already up to date.
+
+path\repo>git push origin main
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohammed37773/iti-dummy-repo2.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+path\repo>git branch -l
+  dev
+* main
+  test
+
+path\repo>git push origin main
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohammed37773/iti-dummy-repo2.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+path\repo>git pull
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> main
+
+
+path\repo>git push origin main
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ ! [rejected]        main -> main (non-fast-forward)
+error: failed to push some refs to 'https://github.com/mohammed37773/iti-dummy-repo2.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. If you want to integrate the remote changes,
+hint: use 'git pull' before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+path\repo>git pull origin main
+From https://github.com/mohammed37773/iti-dummy-repo2
+ * branch            main       -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+path\repo>git switch main
+Already on 'main'
+
+path\repo>git merge dev
+Already up to date.
+
+path\repo>git merge test
+Already up to date.
+
+path\repo>git push origin main
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 366 bytes | 366.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+   f388a68..7a301bb  main -> main
+
+path\repo>git branch -d test
+Deleted branch test (was ba2decc).
+
+path\repo>git branch -d dev
+Deleted branch dev (was 14a0c56).
+
+path\repo>git push origin --delete dev
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ - [deleted]         dev
+
+path\repo>git push origin --delete test
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ - [deleted]         test
+
+path\repo>git tag -a v1.7 -m "v1.7 tag"
+
+path\repo>git push origin v1.7
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 160 bytes | 160.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ * [new tag]         v1.7 -> v1.7
+
+path\repo>git tag
+v1.7
+
+path\repo>git show v1.7
+tag v1.7
+Tagger: Mo <mohammed.mahmoud37773@gmail.com>
+Date:   Thu Feb 19 14:51:11 2026 +0200
+
+v1.7 tag
+
+commit 7a301bb6910fb137beeebe9f5c3952a185b1db2c (HEAD -> main, tag: v1.7, origin/main, origin/HEAD)
+Merge: 14a0c56 f388a68
+Author: Mo <mohammed.mahmoud37773@gmail.com>
+Date:   Thu Feb 19 14:48:49 2026 +0200
+
+    Merge branch 'main' of https://github.com/mohammed37773/iti-dummy-repo2
+
+
+path\repo>git tag -d v1.7
+Deleted tag 'v1.7' (was c6f22bb)
+
+path\repo>git push origin --delete tag v1.7
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+ - [deleted]         v1.7
+
+path\repo>git add *
+
+path\repo>git commit -m "add image"
+[main 68ea5de] add image
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 image.jpg
+
+path\repo>git push
+fatal: The current branch main has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin main
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+path\repo>git push origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 38.79 KiB | 9.70 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/mohammed37773/iti-dummy-repo2.git
+   7a301bb..68ea5de  main -> main
+
+path\repo>
